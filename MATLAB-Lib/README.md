@@ -8,9 +8,12 @@ You do not need to modify MPPI core folder, but platform folder is need to be de
 
 MPPI core is composed with 4 code base
 
-*[initMPPI.m](https://github.com/CrazyMadcow/MPPI-Library/blob/main/MATLAB-Lib/MPPI/initMPPI.m)
+*[initMPPI.m](https://github.com/CrazyMadcow/MPPI-Library/blob/main/MATLAB-Lib/MPPI/initMPPI.m): About init simulation variables, parameters of MPPI, and variables of MPPI
+
 *[dynamics.m](https://github.com/CrazyMadcow/MPPI-Library/blob/main/MATLAB-Lib/MPPI/dynamics.m)
+
 *[MPPI.m](https://github.com/CrazyMadcow/MPPI-Library/blob/main/MATLAB-Lib/MPPI/MPPI.m)
+
 *[plotResult.m](https://github.com/CrazyMadcow/MPPI-Library/blob/main/MATLAB-Lib/MPPI/plotResult.m)
 
 ## platform
