@@ -27,8 +27,9 @@ MPPI core is composed with 4 code base
 ## platform
 
 platform should be defined before you use MPPI library and followings are needed for using MPPI with platform
-  platform name: it should be defined in main code in string type
-  platform code: platform is composed with 4 base codes (init[plaform name] / dyn[plaform name] / cost[plaform name] / plot[plaform name])
+
+  - platform name: it should be defined in main code in string type
+  - platform code: platform is composed with 4 base codes (init[plaform name] / dyn[plaform name] / cost[plaform name] / plot[plaform name])
 
 * init[plaform name]
 
