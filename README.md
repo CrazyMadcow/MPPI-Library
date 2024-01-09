@@ -16,4 +16,6 @@ Details of using library are written in each library folder
 
 ## Result - Python
 
-![PythonStateResult](https://github.com/CrazyMadcow/MPPI-Library/assets/40652714/dc420482-4cfb-490f-bb02-8939d80ecbf9)
+![PythonStateResult](https://github.com/CrazyMadcow/MPPI-Library/assets/40652714/9d4b242f-8f8d-47da-9896-bbfda2785623)
+![PythonInputResult](https://github.com/CrazyMadcow/MPPI-Library/assets/40652714/52a1af99-7a9f-47e3-a3e5-556bb9811fc5)
+
