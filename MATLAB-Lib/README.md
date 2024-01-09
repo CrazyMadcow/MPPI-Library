@@ -36,29 +36,51 @@ platform should be defined before you use MPPI library and followings are needed
     It initialize parameters for simulation, platform model, and MPPI. Its necessary skeleton code is shown as follows
     ```MATLAB
     % Simulation init
-    sim.nx                      =   5;
-    sim.nxa                     =   4;
-    sim.nu                      =   1;
-    sim.x0                      =   [0;0;0;0;0]; % [x, theta, xDot, thetaDot]'
+    sim.nx                      =   0;
+    sim.nu                      =   0;
+    sim.x0                      =   [0;0;0;0;0];
     sim.u0                      =   0;
     sim.x                       =   sim.x0;
     sim.u                       =   sim.u0;
     sim.xDot                    =   zeros(sim.nx,1);
     
     % Model init
-    model.param.mc              =   1; % cart mass
-    model.param.mp              =   0.01; % ball mass
-    model.param.l               =   1; % road length
-    model.param.g               =   9.81; % gravity
-    model.param.tau             =   0.05;
-    model                       =   dynCartPole(model);
-    model                       =   costCartPole(model);
+    model.param.value1          =   0;
+    model.param.value2          =   0;
+    model                       =   dyn[platform name](model);
+    model                       =   cost[platform name](model);
     
     % MPPI init
-    mppi.lambda                 =   0.1;
-    mppi.variance               =   0.1^2;
-    mppi.nu                     =   50;
-    mppi.R                      =   1;
-    mppi.K                      =   1000; % number of samples
-    mppi.N                      =   100; % number of finite horizon
+    mppi.lambda                 =   0; % learning rate
+    mppi.variance               =   0; % system variance
+    mppi.nu                     =   0; % amplitude of variance for search
+    mppi.K                      =   0; % number of samples
+    mppi.N                      =   0; % number of finite horizon
     ```
+* dyn[plaform name]
+
+    It define dynamics equation of the system. A dynamics should be defined with $\dot{X} =  [fa;fc] + [0;Gc]*u$, its necessary skeleton code is shown as follows
+    ```MATLAB
+    function model   =   dyn[platform name](model)
+    
+    model.fa                    =   @(x) [-x(1,:)*x(2,:); 
+                                          -x(2,:)]^2; % input-independent dynamics
+    
+    model.fc                    =   @(x) [-(1/tau)*x(3,:)]; % input-dependent dynamics
+    
+    model.Gc                    =   @(x) [1/tau]; % control effectiveness matrix
+                        
+    end
+    ```
+
+* cost[plaform name]
+
+    It define running cost of the mppi algorithm. Its necessary skeleton code is shown as follows
+    ```MATLAB
+    function model   =   costCartPole(model)
+    
+    model.L         =   @(x, model)   k1*x(1,:)^2 + k2*x(2,:)^3;
+                        
+    end
+    ```
+  
